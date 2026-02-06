@@ -115,6 +115,7 @@ impl<'a> Import<'a> {
 /// An interpreter for mach BIND opcodes.
 /// Runs on prebound (non lazy) symbols (usually dylib extern consts and extern variables),
 /// and lazy symbols (usually dylib functions)
+#[derive(Clone)]
 pub struct BindInterpreter<'a> {
     data: &'a [u8],
     location: Range<usize>,

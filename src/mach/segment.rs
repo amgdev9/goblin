@@ -308,6 +308,7 @@ impl<'a, 'b> IntoIterator for &'b Segment<'a> {
 }
 
 /// Generalized 32/64 bit Segment Command
+#[derive(Clone)]
 pub struct Segment<'a> {
     pub cmd: u32,
     pub cmdsize: u32,
@@ -575,7 +576,7 @@ impl<'a> Segment<'a> {
     }
 }
 
-#[derive(Debug, Default)]
+#[derive(Clone, Debug, Default)]
 /// An opaque 32/64-bit container for Mach-o segments
 pub struct Segments<'a> {
     segments: Vec<Segment<'a>>,
